@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>minzeliang | 生物医学工程</title>
+<style>
+  :root{
+    --mint-bg:#e9f8f1;
+    --mint-deep:#bfe8d6;
+    --mint-accent:#2f9e77;
+    --mint-dark:#1f6f54;
+    --text:#2b3a35;
+    --text-light:#5f7a70;
+    --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--mint-bg);
+    color:var(--text);
+    line-height:1.8;
+  }
+  /* 顶部导航 */
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(233,248,241,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--mint-deep);
+    padding:14px 6%;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  nav .logo{font-weight:700;font-size:18px;color:var(--mint-dark);letter-spacing:1px;}
+  nav ul{display:flex;gap:26px;list-style:none;}
+  nav a{text-decoration:none;color:var(--text);font-size:15px;transition:color .2s;}
+  nav a:hover{color:var(--mint-accent);}
+  @media(max-width:640px){nav ul{gap:14px;font-size:13px;} nav a{font-size:13px;}}
+
+  section{padding:70px 8%;max-width:1100px;margin:0 auto;}
+  h2{
+    font-size:30px;color:var(--mint-dark);
+    margin-bottom:8px;display:flex;align-items:center;gap:12px;
+  }
+  h2::before{content:"";width:6px;height:28px;background:var(--mint-accent);border-radius:3px;}
+  .subtitle{color:var(--text-light);margin-bottom:34px;font-size:15px;}
+
+  /* 首屏 */
+  #home{text-align:center;padding-top:90px;padding-bottom:90px;}
+  #home .tag{
+    display:inline-block;background:var(--white);color:var(--mint-dark);
+    border:1px solid var(--mint-deep);border-radius:999px;
+    padding:6px 18px;font-size:14px;margin-bottom:22px;
+  }
+  #home h1{font-size:44px;color:var(--mint-dark);margin-bottom:14px;}
+  #home h1 span{color:var(--mint-accent);}
+  #home p{max-width:640px;margin:0 auto;color:var(--text-light);font-size:17px;}
+
+  /* 卡片 */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+  .card{
+    background:var(--white);border:1px solid var(--mint-deep);
+    border-radius:16px;padding:26px 24px;transition:transform .2s,box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(47,158,119,.14);}
+  .card h3{font-size:18px;color:var(--mint-dark);margin-bottom:10px;}
+  .card p{font-size:14.5px;color:var(--text-light);}
+
+  /* 关于我 */
+  .about-box{
+    background:var(--white);border:1px solid var(--mint-deep);
+    border-radius:16px;padding:34px;
+  }
+  .about-box p{margin-bottom:14px;color:var(--text);font-size:15.5px;}
+  .mbti{
+    display:inline-block;background:var(--mint-accent);color:#fff;
+    border-radius:8px;padding:4px 14px;font-size:14px;font-weight:600;margin-top:6px;
+  }
+
+  /* 爱好 */
+  .hobby{display:flex;align-items:flex-start;gap:14px;}
+  .hobby .dot{
+    flex:none;width:40px;height:40px;border-radius:12px;
+    background:var(--mint-bg);border:1px solid var(--mint-deep);
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+  }
+
+  /* 职业规划时间线 */
+  .timeline{border-left:3px solid var(--mint-deep);padding-left:26px;margin-top:6px;}
+  .timeline .item{position:relative;margin-bottom:26px;}
+  .timeline .item::before{
+    content:"";position:absolute;left:-35px;top:6px;
+    width:14px;height:14px;border-radius:50%;
+    background:var(--mint-accent);border:3px solid var(--mint-bg);
+  }
+  .timeline h4{color:var(--mint-dark);font-size:16.5px;margin-bottom:4px;}
+  .timeline p{font-size:14.5px;color:var(--text-light);}
+
+  /* 联系我 */
+  #contact{text-align:center;}
+  #contact .btn{
+    display:inline-block;margin:8px;background:var(--mint-accent);color:#fff;
+    text-decoration:none;padding:12px 30px;border-radius:999px;font-size:15px;
+    transition:background .2s;
+  }
+  #contact .btn:hover{background:var(--mint-dark);}
+  #contact .btn.ghost{background:var(--white);color:var(--mint-dark);border:1px solid var(--mint-deep);}
+  #contact .btn.ghost:hover{background:var(--mint-deep);}
+
+  footer{
+    text-align:center;padding:26px;color:var(--text-light);font-size:13.5px;
+    border-top:1px solid var(--mint-deep);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">minzeliang</div>
+  <ul>
+    <li><a href="#home">首页</a></li>
+    <li><a href="#about">关于我</a></li>
+    <li><a href="#skills">专业能力</a></li>
+    <li><a href="#hobbies">兴趣爱好</a></li>
+    <li><a href="#plan">职业规划</a></li>
+    <li><a href="#contact">联系我</a></li>
+  </ul>
+</nav>
+
+<!-- 首页 -->
+<section id="home">
+  <div class="tag">暨南大学 · 2025级 · 生物医学工程</div>
+  <h1>Hi, I'm <span>minzeliang</span></h1>
+  <p>一名目标明确的生物医学工程学生，努力成长为兼具医学理解与工程实现能力的工程师。喜欢薄荷绿、水彩、电吉他和一切美好的事物。</p>
+</section>
+
+<!-- 关于我 -->
+<section id="about">
+  <h2>关于我</h2>
+  <p class="subtitle">About Me</p>
+  <div class="about-box">
+    <p>我是梁佳慧，暨南大学 2025 级生物医学工程专业学生，系统学习生命科学、医学与工程学的交叉知识，具备扎实的理工基础和医学背景。</p>
+    <p>我对医疗器械、医疗电子设备和生物医学信号处理方向有浓厚兴趣，职业目标明确——成为一名兼具医学理解与工程实现能力的工程师。学习能力强、动手意愿高，乐于钻研技术细节，注重团队协作，正通过课程学习、竞赛实践和实习经历不断向职业目标靠近。</p>
+    <span class="mbti">MBTI：INFJ</span>
+  </div>
+</section>
+
+<!-- 专业能力 -->
+<section id="skills">
+  <h2>专业能力</h2>
+  <p class="subtitle">Skills</p>
+  <div class="grid">
+    <div class="card">
+      <h3>专业基础</h3>
+      <p>高等数学、线性代数、大学物理、电路原理、模拟/数字电子技术、信号与系统，以及人体解剖生理学、生物化学等医学课程，具备"医工结合"的复合背景。</p>
+    </div>
+    <div class="card">
+      <h3>硬件与嵌入式</h3>
+      <p>熟悉 STM32 单片机开发、传感器应用、PCB 设计与焊接调试，能够完成简单医疗电子设备的原理图设计与样机搭建。</p>
+    </div>
+    <div class="card">
+      <h3>信号与数据处理</h3>
+      <p>掌握心电 ECG、脑电 EEG、肌电 EMG 等生物医学信号的采集、去噪、特征提取与分析方法，能用 MATLAB / Python 进行数据处理与可视化。</p>
+    </div>
+    <div class="card">
+      <h3>软件与工具</h3>
+      <p>Office 办公软件、AutoCAD / SolidWorks 工程制图与建模、Multisim / Altium Designer 电路仿真与设计，以及 C/C++、Python 编程。</p>
+    </div>
+    <div class="card">
+      <h3>工程规范意识</h3>
+      <p>了解医疗器械行业标准与法规（GB 9706 系列、ISO 13485、IEC 60601），具备质量管理与文档编写意识。</p>
+    </div>
+    <div class="card">
+      <h3>英语能力</h3>
+      <p>具备良好的英文文献阅读与写作能力，能够跟踪国际前沿技术动态，并持续学习外语。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 兴趣爱好 -->
+<section id="hobbies">
+  <h2>兴趣爱好</h2>
+  <p class="subtitle">Hobbies</p>
+  <div class="grid">
+    <div class="card hobby">
+      <div class="dot">📖</div>
+      <div><h3>阅读</h3><p>喜欢看书，从科技文献到医学科普，保持好奇心与持续学习的习惯。</p></div>
+    </div>
+    <div class="card hobby">
+      <div class="dot">🎨</div>
+      <div><h3>水彩</h3><p>喜欢用画笔记录生活，享受色彩在纸上晕开的瞬间。</p></div>
+    </div>
+    <div class="card hobby">
+      <div class="dot">🎸</div>
+      <div><h3>电吉他 & 尤克里里</h3><p>既是温柔的尤克里里，也是热烈的电吉他，动静皆宜。</p></div>
+    </div>
+    <div class="card hobby">
+      <div class="dot">🏊</div>
+      <div><h3>游泳</h3><p>在水中放松身心，也是保持精力、锻炼意志的好方式。</p></div>
+    </div>
+    <div class="card hobby">
+      <div class="dot">🌍</div>
+      <div><h3>外语学习</h3><p>对语言充满兴趣，持续解锁新语种，看见更大的世界。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 职业规划 -->
+<section id="plan">
+  <h2>职业规划</h2>
+  <p class="subtitle">Career Plan</p>
+  <div class="timeline">
+    <div class="item">
+      <h4>短期 · 大学阶段</h4>
+      <p>夯实专业基础，完成核心课程学习，积极参与竞赛与科研，争取 1-2 段相关实习经历。</p>
+    </div>
+    <div class="item">
+      <h4>中期 · 毕业后 1-3 年</h4>
+      <p>进入科技企业，从研发助理 / 工程师岗位做起，积累产品研发与项目经验，熟悉行业法规与质量体系。</p>
+    </div>
+    <div class="item">
+      <h4>长期 · 3-5 年以上</h4>
+      <p>成长为能够独立负责项目的资深工程师，向医疗产品研发、技术支持或项目管理方向发展，为医疗行业技术创新贡献力量。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 联系我 -->
+<section id="contact">
+  <h2 style="justify-content:center;">联系我</h2>
+  <p class="subtitle">Contact</p>
+  <p style="margin-bottom:20px;color:var(--text-light);">欢迎交流学习、竞赛组队或任何有趣的想法～</p>
+  <a class="btn" href="mailto:liangjiahuihhh@qq.com">📧 给我发邮件</a>
+  <a class="btn ghost" href="https://github.com/minzeliang" target="_blank">🐙 GitHub</a>
+</section>
+
+<footer>
+  © 2026 minzeliang · Designed with 💚 and mint green
+</footer>
+
+</body>
+</html>
