@@ -1,234 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>minzeliang | Biomedical Engineering</title>
+<title>梁佳慧 · 2026-2029 大学作战地图</title>
 <style>
-  :root{
-    --mint-bg:#e9f8f1;
-    --mint-deep:#bfe8d6;
-    --mint-accent:#2f9e77;
-    --mint-dark:#1f6f54;
-    --text:#2b3a35;
-    --text-light:#5f7a70;
-    --white:#ffffff;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;
-    background:var(--mint-bg);
-    color:var(--text);
-    line-height:1.8;
-  }
-  nav{
-    position:sticky;top:0;z-index:100;
-    background:rgba(233,248,241,.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--mint-deep);
-    padding:14px 6%;
-    display:flex;justify-content:space-between;align-items:center;
-  }
-  nav .logo{font-weight:700;font-size:18px;color:var(--mint-dark);letter-spacing:1px;}
-  nav ul{display:flex;gap:26px;list-style:none;}
-  nav a{text-decoration:none;color:var(--text);font-size:15px;transition:color .2s;}
-  nav a:hover{color:var(--mint-accent);}
-  @media(max-width:640px){nav ul{gap:14px;} nav a{font-size:13px;}}
-
-  section{padding:70px 8%;max-width:1100px;margin:0 auto;}
-  h2{
-    font-size:30px;color:var(--mint-dark);
-    margin-bottom:8px;display:flex;align-items:center;gap:12px;
-  }
-  h2::before{content:"";width:6px;height:28px;background:var(--mint-accent);border-radius:3px;}
-  .subtitle{color:var(--text-light);margin-bottom:34px;font-size:15px;}
-
-  #home{text-align:center;padding-top:90px;padding-bottom:90px;}
-  #home .tag{
-    display:inline-block;background:var(--white);color:var(--mint-dark);
-    border:1px solid var(--mint-deep);border-radius:999px;
-    padding:6px 18px;font-size:14px;margin-bottom:22px;
-  }
-  #home h1{font-size:44px;color:var(--mint-dark);margin-bottom:14px;}
-  #home h1 span{color:var(--mint-accent);}
-  #home p{max-width:640px;margin:0 auto;color:var(--text-light);font-size:17px;}
-
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
-  .card{
-    background:var(--white);border:1px solid var(--mint-deep);
-    border-radius:16px;padding:26px 24px;transition:transform .2s,box-shadow .2s;
-  }
-  .card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(47,158,119,.14);}
-  .card h3{font-size:18px;color:var(--mint-dark);margin-bottom:10px;}
-  .card p{font-size:14.5px;color:var(--text-light);}
-
-  .about-box{
-    background:var(--white);border:1px solid var(--mint-deep);
-    border-radius:16px;padding:34px;
-  }
-  .about-box p{margin-bottom:14px;color:var(--text);font-size:15.5px;}
-  .mbti{
-    display:inline-block;background:var(--mint-accent);color:#fff;
-    border-radius:8px;padding:4px 14px;font-size:14px;font-weight:600;margin-top:6px;
-  }
-
-  .hobby{display:flex;align-items:flex-start;gap:14px;}
-  .hobby .dot{
-    flex:none;width:40px;height:40px;border-radius:12px;
-    background:var(--mint-bg);border:1px solid var(--mint-deep);
-    display:flex;align-items:center;justify-content:center;font-size:20px;
-  }
-
-  .timeline{border-left:3px solid var(--mint-deep);padding-left:26px;margin-top:6px;}
-  .timeline .item{position:relative;margin-bottom:26px;}
-  .timeline .item::before{
-    content:"";position:absolute;left:-35px;top:6px;
-    width:14px;height:14px;border-radius:50%;
-    background:var(--mint-accent);border:3px solid var(--mint-bg);
-  }
-  .timeline h4{color:var(--mint-dark);font-size:16.5px;margin-bottom:4px;}
-  .timeline p{font-size:14.5px;color:var(--text-light);}
-
-  #contact{text-align:center;}
-  #contact .btn{
-    display:inline-block;margin:8px;background:var(--mint-accent);color:#fff;
-    text-decoration:none;padding:12px 30px;border-radius:999px;font-size:15px;
-    transition:background .2s;
-  }
-  #contact .btn:hover{background:var(--mint-dark);}
-  #contact .btn.ghost{background:var(--white);color:var(--mint-dark);border:1px solid var(--mint-deep);}
-  #contact .btn.ghost:hover{background:var(--mint-deep);}
-
-  footer{
-    text-align:center;padding:26px;color:var(--text-light);font-size:13.5px;
-    border-top:1px solid var(--mint-deep);
-  }
+:root{
+  --primary:#1f3b63; --primary-light:#e8eef7; --accent:#2e7d5b; --accent-light:#e6f4ee;
+  --warn:#b45309; --bg:#f6f7f9; --card:#ffffff; --text:#2d3748; --muted:#718096;
+  --radius:14px; --shadow:0 2px 12px rgba(31,59,99,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+nav{position:sticky;top:0;z-index:99;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid #e2e8f0}
+nav .inner{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+nav .logo{font-weight:800;color:var(--primary);font-size:17px}
+nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:4px 8px;border-radius:8px}
+nav a:hover{background:var(--primary-light);color:var(--primary)}
+main{max-width:1100px;margin:0 auto;padding:24px 20px 80px}
+section{margin-top:56px}
+h2{font-size:24px;color:var(--primary);margin-bottom:6px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+/* HERO */
+#hero{background:linear-gradient(135deg,#1f3b63 0%,#2c5282 100%);color:#fff;border-radius:20px;padding:44px 36px;margin-top:24px}
+#hero h1{font-size:30px;margin-bottom:10px}
+#hero .formula{font-size:17px;background:rgba(255,255,255,.14);display:inline-block;padding:8px 18px;border-radius:999px;margin:14px 0}
+#hero .meta{opacity:.85;font-size:14px;margin-top:8px}
+#hero .pillars{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+#hero .pillars span{background:rgba(255,255,255,.16);padding:6px 14px;border-radius:999px;font-size:13px}
+/* CARDS */
+.grid{display:grid;gap:16px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+.card h3{color:var(--primary);font-size:17px;margin-bottom:4px}
+.tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;background:var(--primary-light);color:var(--primary);margin-bottom:10px}
+.tag.green{background:var(--accent-light);color:var(--accent)}
+.tag.orange{background:#fef3e2;color:var(--warn)}
+.card ul{margin:10px 0 0 18px;font-size:14px}
+.card li{margin-bottom:6px}
+.kpi{margin-top:12px;padding:10px 12px;background:var(--accent-light);border-radius:10px;font-size:13px;color:var(--accent);font-weight:600}
+/* MONTH */
+.month-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.month-tools button{border:1px solid #cbd5e0;background:#fff;color:var(--text);padding:5px 14px;border-radius:999px;font-size:13px;cursor:pointer}
+.month-tools button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.month{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 20px;margin-bottom:10px;border-left:4px solid #cbd5e0}
+.month.now{border-left-color:var(--warn);background:#fffaf0}
+.month .m-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px}
+.month .m-title{font-weight:700;color:var(--primary)}
+.month .m-theme{font-size:13px;color:var(--accent);font-weight:600}
+.month .now-badge{font-size:11px;background:var(--warn);color:#fff;padding:2px 8px;border-radius:999px}
+.month ul{margin:8px 0 0 18px;font-size:14px}
+.month li{margin-bottom:4px}
+.hidden{display:none}
+/* WEEK */
+.week-wrap{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:900px){.week-wrap{grid-template-columns:1.2fr .8fr}}
+table.sched{width:100%;border-collapse:collapse;font-size:13px}
+table.sched th{background:var(--primary);color:#fff;padding:8px 6px;font-weight:600}
+table.sched td{border:1px solid #e2e8f0;padding:7px 6px;text-align:center;background:#fff}
+table.sched td.lab{background:var(--accent-light);color:var(--accent);font-weight:600}
+table.sched td.study{background:var(--primary-light);color:var(--primary);font-weight:600}
+.check-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;margin-bottom:8px;background:#fff;border:1px solid #e2e8f0;font-size:14px;cursor:pointer}
+.check-item.done{background:var(--accent-light);border-color:var(--accent)}
+.check-item.done .txt{text-decoration:line-through;color:var(--muted)}
+.check-item input{width:17px;height:17px;accent-color:var(--accent)}
+.progress{height:10px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:10px 0}
+.progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.focus-input{width:100%;padding:10px;border:1px solid #cbd5e0;border-radius:10px;font-size:14px;margin-top:6px;font-family:inherit}
+.btn{border:none;background:var(--primary);color:#fff;padding:8px 18px;border-radius:10px;cursor:pointer;font-size:13px}
+.btn.ghost{background:#edf2f7;color:var(--muted)}
+/* MILESTONE */
+.ms{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;text-align:center}
+.ms .days{font-size:34px;font-weight:800;color:var(--primary)}
+.ms .days small{font-size:14px;color:var(--muted);font-weight:400}
+.ms .ms-title{font-size:14px;font-weight:600;margin-top:4px}
+.ms .ms-date{font-size:12px;color:var(--muted)}
+/* FOOTER */
+footer{margin-top:70px;background:#edf2f7;border-radius:16px;padding:26px;font-size:13.5px;color:var(--muted)}
+footer ol{margin:8px 0 0 20px}
+footer code{background:#fff;padding:2px 8px;border-radius:6px;border:1px solid #e2e8f0}
 </style>
 </head>
 <body>
+<nav><div class="inner">
+  <span class="logo">📋 佳慧的作战地图</span>
+  <a href="#year">年计划</a><a href="#month">月计划</a><a href="#week">周计划</a><a href="#ms">里程碑</a><a href="#deploy">部署</a>
+</div></nav>
 
-<nav>
-  <div class="logo">minzeliang</div>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#hobbies">Hobbies</a></li>
-    <li><a href="#plan">Career Plan</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<main>
+<!-- HERO -->
+<div id="hero">
+  <h1>暨南大学 · 生物医学工程 · 2025级</h1>
+  <div>主线：李楠教授课题组（SERS生物传感 / IVD）｜ 目标：保研 + 港新全奖PhD + 德国 三线并行</div>
+  <div class="formula">学业 87 + 素养 50 = 综测 77 ≈ 前 10% ✦ GPA前10% ✦ 一篇论文 ✦ 雅思7.0 ✦ 两段实习</div>
+  <div class="meta">2026.10 — 2029.6 ｜ 当前位置：<span id="todayStr"></span></div>
+  <div class="pillars"><span>🏫 课堂冲88+</span><span>🧪 实验室≥10h/周</span><span>🇬🇧 英语每天1h</span><span>💻 Python/信号自学</span><span>😴 23:00熄灯</span></div>
+</div>
 
-<!-- Home -->
-<section id="home">
-  <div class="tag">Jinan University · Class of 2025 · Biomedical Engineering</div>
-  <h1>Hi, I'm <span>minzeliang</span></h1>
-  <p>A biomedical engineering student with a clear goal — to become an engineer who combines medical insight with engineering capability. I love mint green, watercolor, electric guitar, and all things beautiful.</p>
-</section>
-
-<!-- About -->
-<section id="about">
-  <h2>About Me</h2>
-  <p class="subtitle">A little bit about who I am</p>
-  <div class="about-box">
-    <p>I'm Liang Jiahui, a Class of 2025 Biomedical Engineering student at Jinan University, systematically studying the intersection of life sciences, medicine, and engineering, with a solid foundation in both science and medicine.</p>
-    <p>I have a strong interest in medical devices, medical electronics, and biomedical signal processing. My career goal is clear — to become an engineer who combines medical understanding with engineering implementation. I'm a fast learner with a strong willingness to work hands-on, I enjoy digging into technical details, and I value teamwork. Through coursework, competitions, and internships, I'm steadily moving toward my goal.</p>
-  </div>
-</section>
-
-<!-- Skills -->
-<section id="skills">
-  <h2>Skills</h2>
-  <p class="subtitle">What I can do</p>
-  <div class="grid">
+<!-- YEAR -->
+<section id="year">
+  <h2>📅 三年年计划</h2>
+  <div class="sub">每学年一个主题：打地基 → 出成果 → 收割</div>
+  <div class="grid grid-3">
     <div class="card">
-      <h3>Academic Foundation</h3>
-      <p>Calculus, linear algebra, college physics, circuit theory, analog/digital electronics, signals and systems — plus human anatomy & physiology and biochemistry, giving me a truly interdisciplinary "medicine + engineering" background.</p>
+      <span class="tag">大二 · 2026.10—2027.8</span>
+      <h3>打地基：进组、GPA、首考雅思、第一段实习</h3>
+      <ul>
+        <li>李楠组锁定SERS课题，从洗瓶子到独立实验</li>
+        <li>所有课冲85+，本学期起每学期排名进前15名</li>
+        <li>选修：科技文献检索、科研素养与伦理</li>
+        <li>自学：Python入门 → 能跑数据处理</li>
+        <li>2027寒假：雅思首考 + 安图/医院见习</li>
+        <li>2027暑假：迈瑞/微创研发实习（3月网申）</li>
+        <li>4月：省级大创申报（主持人）</li>
+      </ul>
+      <div class="kpi">学年KPI：GPA累计进前25% · 雅思6.5+ · 实习证明×2 · 大创立项</div>
     </div>
     <div class="card">
-      <h3>Hardware & Embedded</h3>
-      <p>Experienced with STM32 microcontroller development, sensor applications, PCB design, soldering and debugging — able to build schematic designs and prototypes of simple medical electronic devices.</p>
+      <span class="tag green">大三 · 2027.9—2028.8</span>
+      <h3>出成果：论文、GRE、夏令营、暑期科研</h3>
+      <ul>
+        <li>接手论文级课题，数据稳定产出</li>
+        <li>GRE首考320+（11月）；六级刷分（12月）</li>
+        <li>选修：组织工程学、医学图像处理、科研实践训练</li>
+        <li>自学：信号与系统、MATLAB、深度学习PyTorch</li>
+        <li>2028寒假：雅思刷7.0</li>
+        <li>3月：论文投稿（夏令营前拿录用通知）</li>
+        <li>5-7月：夏令营（川大/东南/浙大/华工/港中文）</li>
+        <li>7月：SIPGA申请（A*STAR带薪科研）</li>
+      </ul>
+      <div class="kpi">学年KPI：论文录用 · 雅思7.0 · GRE 320 · 夏令营优营 · 综测进前12%</div>
     </div>
     <div class="card">
-      <h3>Signal & Data Processing</h3>
-      <p>Familiar with the acquisition, denoising, feature extraction, and analysis of biomedical signals such as ECG, EEG, and EMG; proficient in data processing and visualization with MATLAB / Python.</p>
-    </div>
-    <div class="card">
-      <h3>Software & Tools</h3>
-      <p>Microsoft Office, AutoCAD / SolidWorks for engineering drawing and modeling, Multisim / Altium Designer for circuit simulation and design, and programming in C/C++ and Python.</p>
-    </div>
-    <div class="card">
-      <h3>Engineering Standards</h3>
-      <p>Knowledge of medical device industry standards and regulations (GB 9706 series, ISO 13485, IEC 60601), with awareness of quality management and technical documentation.</p>
-    </div>
-    <div class="card">
-      <h3>Language Skills</h3>
-      <p>Strong English reading and writing skills, able to follow international frontier research — and I keep learning foreign languages out of pure interest.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Hobbies -->
-<section id="hobbies">
-  <h2>Hobbies</h2>
-  <p class="subtitle">What I love outside of engineering</p>
-  <div class="grid">
-    <div class="card hobby">
-      <div class="dot">📖</div>
-      <div><h3>Reading</h3><p>From scientific papers to medical popular science — staying curious and keeping the habit of lifelong learning.</p></div>
-    </div>
-    <div class="card hobby">
-      <div class="dot">🎨</div>
-      <div><h3>Watercolor</h3><p>I love recording life with a paintbrush, enjoying the moment colors bloom on paper.</p></div>
-    </div>
-    <div class="card hobby">
-      <div class="dot">🎸</div>
-      <div><h3>Electric Guitar & Ukulele</h3><p>From the gentle ukulele to the passionate electric guitar — I enjoy both sides.</p></div>
-    </div>
-    <div class="card hobby">
-      <div class="dot">🏊</div>
-      <div><h3>Swimming</h3><p>Relaxing my body and mind in the water, and a great way to build energy and willpower.</p></div>
-    </div>
-    <div class="card hobby">
-      <div class="dot">🌍</div>
-      <div><h3>Language Learning</h3><p>Fascinated by languages, always unlocking new ones and seeing a bigger world.</p></div>
+      <span class="tag orange">大四 · 2028.9—2029.6</span>
+      <h3>收割：推免/考研/留学三线</h3>
+      <ul>
+        <li>9月：拿推免资格 → 推免系统填报（9.22）→ 预推免复试</li>
+        <li>9月：APS递材料（德国B计划启动）</li>
+        <li>10月：考研网报（backup，10.5-25）</li>
+        <li>12.1：SINGA + HKPFS 双截止，提前填好草稿</li>
+        <li>12月下旬：考研初试（若推免失败）</li>
+        <li>2029.1-4：考研复试 / 德国网申 / offer收割</li>
+        <li>5-6月：选offer、签证、毕业</li>
+      </ul>
+      <div class="kpi">终点KPI：保研offer 或 全奖PhD 至少一个落地</div>
     </div>
   </div>
 </section>
 
-<!-- Career Plan -->
-<section id="plan">
-  <h2>Career Plan</h2>
-  <p class="subtitle">Where I'm headed</p>
-  <div class="timeline">
-    <div class="item">
-      <h4>Short-term · University Years</h4>
-      <p>Build a solid academic foundation, complete core coursework, actively join competitions and research, and aim for 1-2 relevant internships.</p>
+<!-- MONTH -->
+<section id="month">
+  <h2>🗓️ 33个月计划</h2>
+  <div class="sub">点按学年筛选；<b style="color:var(--warn)">橙色</b>为本月。每月月末对照打勾情况复盘一次。</div>
+  <div class="month-tools" id="monthTools">
+    <button data-y="all" class="active">全部</button>
+    <button data-y="y2">大二</button>
+    <button data-y="y3">大三</button>
+    <button data-y="y4">大四</button>
+  </div>
+  <div id="monthList"></div>
+</section>
+
+<!-- WEEK -->
+<section id="week">
+  <h2>✅ 周计划与打卡</h2>
+  <div class="sub">课表结构雷打不动，内容随学期切换。勾选自动保存在本浏览器。</div>
+  <div class="week-wrap">
+    <div class="card">
+      <h3>学期周课表（固定结构）</h3>
+      <table class="sched">
+        <tr><th>时间</th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th><th>周末</th></tr>
+        <tr><td>7:00-7:40</td><td colspan="6">起床 + 英语播客（每天）</td></tr>
+        <tr><td>8:00-11:40</td><td colspan="4">上课（按实际课表）</td><td>上课</td><td class="lab">实验室半天(六上午)<br>复盘+周计划(日上午)</td></tr>
+        <tr><td>12:00-14:00</td><td colspan="6">午饭 + 午休</td></tr>
+        <tr><td>14:00-17:30</td><td>上课/自习</td><td class="lab">实验室①</td><td>体育课</td><td class="lab">实验室②</td><td>上课/自习</td><td class="study">自学整块：Python/信号(日下午)</td></tr>
+        <tr><td>17:30-19:00</td><td colspan="6">晚饭 + 运动（每天30-60min）</td></tr>
+        <tr><td>19:00-20:40</td><td colspan="6">晚自习：当天作业清零 + 次日预习</td></tr>
+        <tr><td>20:40-21:40</td><td colspan="6">英语 1 小时（每天：单词+听力）</td></tr>
+        <tr><td>21:40-22:30</td><td class="study">Python/信号</td><td class="study">文献精读</td><td class="study">Python/信号</td><td class="study">实验记录</td><td class="study">Python/信号</td><td>自由</td></tr>
+        <tr><td>22:30-23:00</td><td colspan="6">洗漱 + 3句话日记 → 23:00 熄灯</td></tr>
+      </table>
     </div>
-    <div class="item">
-      <h4>Mid-term · 1-3 Years After Graduation</h4>
-      <p>Join a technology company as an R&amp;D assistant / engineer, accumulate product development and project experience, and get familiar with industry regulations and quality systems.</p>
-    </div>
-    <div class="item">
-      <h4>Long-term · 3-5+ Years</h4>
-      <p>Grow into a senior engineer capable of independently leading projects, moving toward medical product R&amp;D, technical support, or project management — contributing to innovation in healthcare.</p>
+    <div class="card">
+      <h3>本周打卡 <span id="weekLabel" style="font-weight:400;font-size:12px;color:var(--muted)"></span></h3>
+      <div class="progress"><i id="pbar"></i></div>
+      <div id="checkList"></div>
+      <input class="focus-input" id="focusInput" placeholder="✍️ 本周聚焦（例：生化期中冲90 / 组会汇报PPT）">
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button class="btn" onclick="resetWeek()">重置本周</button>
+        <button class="btn ghost" onclick="document.getElementById('focusInput').value=''">清空聚焦</button>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-top:12px">周日核对：连续两周不达标 → 砍掉一个次要项（通常是Python小项目），保实验室和英语。</div>
     </div>
   </div>
 </section>
 
-<!-- Contact -->
-<section id="contact">
-  <h2 style="justify-content:center;">Contact Me</h2>
-  <p class="subtitle">Get in touch</p>
-  <p style="margin-bottom:20px;color:var(--text-light);">Always happy to chat about study, competition teams, or any interesting ideas.</p>
-  <a class="btn" href="mailto:liangjiahuihhh@qq.com">📧 Email me</a>
-  <a class="btn ghost" href="https://github.com/minzeliang" target="_blank">🐙 GitHub</a>
+<!-- MILESTONE -->
+<section id="ms">
+  <h2>🎯 里程碑倒计时</h2>
+  <div class="sub">日期为规划锚点，报名后以官方时间为准，本页自动更新天数。</div>
+  <div class="grid grid-3" id="msList"></div>
 </section>
 
-<footer>
-  © 2026 minzeliang. Life Science and Technology College, Jinan University. All Rights Reserved.
+<!-- DEPLOY -->
+<footer id="deploy">
+  <b>🚀 如何部署到 GitHub Pages（免费，四步）</b>
+  <ol>
+    <li>注册 GitHub → 新建仓库，名字必须叫 <code>你的用户名.github.io</code>（勾 Public）</li>
+    <li>把本文件重命名为 <code>index.html</code>，上传到仓库（网页端 "Add file → Upload files" 即可）</li>
+    <li>进入 Settings → Pages → Source 选 <code>main</code> 分支 → Save</li>
+    <li>等2分钟，访问 <code>https://你的用户名.github.io</code> ——你的作战地图上线了</li>
+  </ol>
+  <div style="margin-top:10px">进阶：每次push自动更新；手机浏览器打开也能打卡（数据在各自浏览器本地）。</div>
 </footer>
+</main>
 
+<script>
+/* ============ 月计划数据 ============ */
+const MONTHS=[
+["2026-10","y2","进组月","和李楠教授深谈定课题；建"申请材料库"网盘；所有课坐前排；精读课题组论文3篇"],
+["2026-11","y2","期中月","期中全部冲85+；实验室固定3个半天；英语每天1h不中断"],
+["2026-12","y2","考试月","六级考试；期末复习启动；整理本学期实验记录成小结"],
+["2027-01","y2","雅思首考月","寒假前3周雅思集训→2月首考；后3周安图(郑州)或医院见习；要实习证明"],
+["2027-02","y2","复盘月","出分后推演总排名；雅思复盘定弱项；信号与系统买教材预习"],
+["2027-03","y2","网申月","迈瑞/微创暑期实习网申截止前投出；信号与系统开自学；GRE单词启动"],
+["2027-04","y2","大创月","省级大创申报(主持人)；生医工创新设计竞赛组队报名"],
+["2027-05","y2","冲刺月","期末全面冲刺；确认暑期实习offer；实验室数据不能断"],
+["2027-06","y2","期末月","期末目标均分88+；暑期实习行前准备(租房/装备)"],
+["2027-07","y2","实习月","迈瑞/微创实习全勤；每周给李教授发进展；晚上Python不中断"],
+["2027-08","y2","收尾月","实习收尾拿证明+带教评价；Python项目开源到GitHub；写一份实习总结"],
+["2027-09","y3","定题月","回组定"论文级"课题；科研实践训练(一)选课；GRE系统备考启动"],
+["2027-10","y3","深度月","实验室≥10h/周；GRE强化；选修:组织工程学/医学图像处理跟上"],
+["2027-11","y3","GRE月","GRE首考(目标320+)；如六级<500则12月二刷"],
+["2027-12","y3","数据月","六级/期末；论文核心数据产出；整理数据图表"],
+["2028-01","y3","刷分月","雅思二刷冲7.0；英文简历v1；寒假补实验数据"],
+["2028-02","y3","缓冲月","德语A1线上课可选；APS流程了解(aps.org.cn)；材料库更新"],
+["2028-03","y3","投稿月","★论文投稿(目标:夏令营前录用)；考研数学启动(保底)；夏令营材料包清单"],
+["2028-04","y3","备战月","夏令营报名准备(成绩单/排名/推荐信)；MATLAB+医学统计自学"],
+["2028-05","y3","夏令营月","报名川大/东南/浙大/华工/港中文；SIPGA材料准备"],
+["2028-06","y3","参营月","参加夏令营冲优营；期末；7月底前提交SIPGA"],
+["2028-07","y3","科研月","保研稳→去优营导师组暑期科研；不稳→留暨大补数据+考研英语政治启动"],
+["2028-08","y3","预判月","暑期科研收尾；推免资格预判；考研全面强化启动"],
+["2028-09","y4","推免月","★推免资格公布→9.22推免系统填报→预推免复试；★APS递材料"],
+["2028-10","y4","分叉月","10.5-25考研网报(若推免失败)；港新导师套磁；SINGA/HKPFS网申填草稿"],
+["2028-11","y4","文书月","PS/RP四版本终稿；推荐信3封签好；考研+申请并行"],
+["2028-12","y4","总爆发月","★12.1 SINGA截止；★12.1 HKPFS截止；12月下旬考研初试"],
+["2029-01","y4","等待月","考研等分；德国大学网申(uni-assist)；APS面谈(如未做)"],
+["2029-02","y4","复试月","考研复试准备(专业课+英语口语)；港新offer陆续到"],
+["2029-03","y4","收割月","考研复试/调剂；德国offer；offer横向对比表"],
+["2029-04","y4","决策月","最终选择落定；告诉所有导师最终决定(礼貌)"],
+["2029-05","y4","毕业月","毕业论文(尽量延续课题组课题)；签证办理；体测/档案"],
+["2029-06","y4","出发月","毕业；签证下来；收拾行囊——下一站见"]
+];
+/* ============ 渲染月计划 ============ */
+const nowYM=new Date().toISOString().slice(0,7);
+const list=document.getElementById('monthList');
+list.innerHTML=MONTHS.map(m=>{
+  const items=m[3].split('；').map(s=>s.trim()).filter(Boolean);
+  return `<div class="month ${m[0]===nowYM?'now':''}" data-y="${m[1]}">
+    <div class="m-head"><span class="m-title">${m[0].replace('-','年')}月</span>
+    ${m[0]===nowYM?'<span class="now-badge">← 本月</span>':''}
+    <span class="m-theme">${m[2]}</span></div>
+    <ul>${items.map(i=>`<li>${i}</li>`).join('')}</ul></div>`;
+}).join('');
+document.getElementById('monthTools').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  document.querySelectorAll('#monthTools button').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  const y=e.target.dataset.y;
+  document.querySelectorAll('.month').forEach(el=>{
+    el.classList.toggle('hidden', y!=='all' && el.dataset.y!==y);
+  });
+});
+/* ============ 周打卡 ============ */
+const TASKS=["实验室 ≥10 小时","文献精读 1 篇","英语 7 小时（每天1h）","Python/信号 3 次","作业清零 0 欠债","运动 3 次","23:00前睡 ≥5 天","周日复盘 + 下周计划","实验记录当天写"];
+function weekKey(){const d=new Date();const onejan=new Date(d.getFullYear(),0,1);const w=Math.ceil((((d-onejan)/86400000)+onejan.getDay()+1)/7);return 'w'+d.getFullYear()+'_'+w;}
+const KEY='jh_plan_'+weekKey();
+document.getElementById('weekLabel').textContent='（'+weekKey()+'）';
+const cl=document.getElementById('checkList');
+cl.innerHTML=TASKS.map((t,i)=>`<label class="check-item"><input type="checkbox" data-i="${i}"><span class="txt">${t}</span></label>`).join('');
+function load(){
+  let saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  document.querySelectorAll('#checkList input').forEach(cb=>{cb.checked=!!saved[cb.dataset.i];cb.parentElement.classList.toggle('done',cb.checked);});
+  const done=Object.values(saved).filter(Boolean).length;
+  document.getElementById('pbar').style.width=(done/TASKS.length*100)+'%';
+}
+cl.addEventListener('change',e=>{
+  const cb=e.target;cb.parentElement.classList.toggle('done',cb.checked);
+  let saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(err){}
+  saved[cb.dataset.i]=cb.checked;localStorage.setItem(KEY,JSON.stringify(saved));load();
+});
+function resetWeek(){localStorage.removeItem(KEY);document.querySelectorAll('#checkList input').forEach(cb=>{cb.checked=false;cb.parentElement.classList.remove('done')});document.getElementById('pbar').style.width='0%';}
+const fK=KEY+'_focus';const fi=document.getElementById('focusInput');
+fi.value=localStorage.getItem(fK)||'';fi.addEventListener('input',()=>localStorage.setItem(fK,fi.value));
+load();
+/* ============ 里程碑 ============ */
+const MS=[
+["2027-02-20","雅思首考（寒假）"],
+["2027-03-31","迈瑞/微创暑期实习网申"],
+["2027-07-01","暑期研发实习开始"],
+["2028-03-31","论文投稿"],
+["2028-06-15","夏令营参营"],
+["2028-09-22","推免系统开放"],
+["2028-12-01","SINGA + HKPFS 截止"],
+["2028-12-20","考研初试"],
+["2029-06-30","毕业 🎓"]];
+document.getElementById('msList').innerHTML=MS.map(m=>{
+  const d=Math.ceil((new Date(m[0])-new Date())/86400000);
+  const txt=d>0?`还有 <span class="days">${d}</span> <small>天</small>`:`<span class="days">已到达</span>`;
+  return `<div class="ms">${txt}<div class="ms-title">${m[1]}</div><div class="ms-date">${m[0]}</div></div>`;
+}).join('');
+document.getElementById('todayStr').textContent=new Date().toLocaleDateString('zh-CN');
+</script>
 </body>
 </html>
