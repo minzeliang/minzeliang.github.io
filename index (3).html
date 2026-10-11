@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>minzeliang | Biomedical Engineering</title>
+<style>
+  :root{
+    --mint-bg:#e9f8f1;
+    --mint-deep:#bfe8d6;
+    --mint-accent:#2f9e77;
+    --mint-dark:#1f6f54;
+    --text:#2b3a35;
+    --text-light:#5f7a70;
+    --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;
+    background:var(--mint-bg);
+    color:var(--text);
+    line-height:1.8;
+  }
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(233,248,241,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--mint-deep);
+    padding:14px 6%;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  nav .logo{font-weight:700;font-size:18px;color:var(--mint-dark);letter-spacing:1px;}
+  nav ul{display:flex;gap:26px;list-style:none;}
+  nav a{text-decoration:none;color:var(--text);font-size:15px;transition:color .2s;}
+  nav a:hover{color:var(--mint-accent);}
+  @media(max-width:640px){nav ul{gap:14px;} nav a{font-size:13px;}}
+
+  section{padding:70px 8%;max-width:1100px;margin:0 auto;}
+  h2{
+    font-size:30px;color:var(--mint-dark);
+    margin-bottom:8px;display:flex;align-items:center;gap:12px;
+  }
+  h2::before{content:"";width:6px;height:28px;background:var(--mint-accent);border-radius:3px;}
+  .subtitle{color:var(--text-light);margin-bottom:34px;font-size:15px;}
+
+  #home{text-align:center;padding-top:90px;padding-bottom:90px;}
+  #home .tag{
+    display:inline-block;background:var(--white);color:var(--mint-dark);
+    border:1px solid var(--mint-deep);border-radius:999px;
+    padding:6px 18px;font-size:14px;margin-bottom:22px;
+  }
+  #home h1{font-size:44px;color:var(--mint-dark);margin-bottom:14px;}
+  #home h1 span{color:var(--mint-accent);}
+  #home p{max-width:640px;margin:0 auto;color:var(--text-light);font-size:17px;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+  .card{
+    background:var(--white);border:1px solid var(--mint-deep);
+    border-radius:16px;padding:26px 24px;transition:transform .2s,box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(47,158,119,.14);}
+  .card h3{font-size:18px;color:var(--mint-dark);margin-bottom:10px;}
+  .card p{font-size:14.5px;color:var(--text-light);}
+
+  .about-box{
+    background:var(--white);border:1px solid var(--mint-deep);
+    border-radius:16px;padding:34px;
+  }
+  .about-box p{margin-bottom:14px;color:var(--text);font-size:15.5px;}
+  .mbti{
+    display:inline-block;background:var(--mint-accent);color:#fff;
+    border-radius:8px;padding:4px 14px;font-size:14px;font-weight:600;margin-top:6px;
+  }
+
+  .hobby{display:flex;align-items:flex-start;gap:14px;}
+  .hobby .dot{
+    flex:none;width:40px;height:40px;border-radius:12px;
+    background:var(--mint-bg);border:1px solid var(--mint-deep);
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+  }
+
+  .timeline{border-left:3px solid var(--mint-deep);padding-left:26px;margin-top:6px;}
+  .timeline .item{position:relative;margin-bottom:26px;}
+  .timeline .item::before{
+    content:"";position:absolute;left:-35px;top:6px;
+    width:14px;height:14px;border-radius:50%;
+    background:var(--mint-accent);border:3px solid var(--mint-bg);
+  }
+  .timeline h4{color:var(--mint-dark);font-size:16.5px;margin-bottom:4px;}
+  .timeline p{font-size:14.5px;color:var(--text-light);}
+
+  #contact{text-align:center;}
+  #contact .btn{
+    display:inline-block;margin:8px;background:var(--mint-accent);color:#fff;
+    text-decoration:none;padding:12px 30px;border-radius:999px;font-size:15px;
+    transition:background .2s;
+  }
+  #contact .btn:hover{background:var(--mint-dark);}
+  #contact .btn.ghost{background:var(--white);color:var(--mint-dark);border:1px solid var(--mint-deep);}
+  #contact .btn.ghost:hover{background:var(--mint-deep);}
+
+  footer{
+    text-align:center;padding:26px;color:var(--text-light);font-size:13.5px;
+    border-top:1px solid var(--mint-deep);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">minzeliang</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#hobbies">Hobbies</a></li>
+    <li><a href="#plan">Career Plan</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Home -->
+<section id="home">
+  <div class="tag">Jinan University · Class of 2025 · Biomedical Engineering</div>
+  <h1>Hi, I'm <span>minzeliang</span></h1>
+  <p>A biomedical engineering student with a clear goal — to become an engineer who combines medical insight with engineering capability. I love mint green, watercolor, electric guitar, and all things beautiful.</p>
+</section>
+
+<!-- About -->
+<section id="about">
+  <h2>About Me</h2>
+  <p class="subtitle">A little bit about who I am</p>
+  <div class="about-box">
+    <p>I'm Liang Jiahui, a Class of 2025 Biomedical Engineering student at Jinan University, systematically studying the intersection of life sciences, medicine, and engineering, with a solid foundation in both science and medicine.</p>
+    <p>I have a strong interest in medical devices, medical electronics, and biomedical signal processing. My career goal is clear — to become an engineer who combines medical understanding with engineering implementation. I'm a fast learner with a strong willingness to work hands-on, I enjoy digging into technical details, and I value teamwork. Through coursework, competitions, and internships, I'm steadily moving toward my goal.</p>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2>Skills</h2>
+  <p class="subtitle">What I can do</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Academic Foundation</h3>
+      <p>Calculus, linear algebra, college physics, circuit theory, analog/digital electronics, signals and systems — plus human anatomy & physiology and biochemistry, giving me a truly interdisciplinary "medicine + engineering" background.</p>
+    </div>
+    <div class="card">
+      <h3>Hardware & Embedded</h3>
+      <p>Experienced with STM32 microcontroller development, sensor applications, PCB design, soldering and debugging — able to build schematic designs and prototypes of simple medical electronic devices.</p>
+    </div>
+    <div class="card">
+      <h3>Signal & Data Processing</h3>
+      <p>Familiar with the acquisition, denoising, feature extraction, and analysis of biomedical signals such as ECG, EEG, and EMG; proficient in data processing and visualization with MATLAB / Python.</p>
+    </div>
+    <div class="card">
+      <h3>Software & Tools</h3>
+      <p>Microsoft Office, AutoCAD / SolidWorks for engineering drawing and modeling, Multisim / Altium Designer for circuit simulation and design, and programming in C/C++ and Python.</p>
+    </div>
+    <div class="card">
+      <h3>Engineering Standards</h3>
+      <p>Knowledge of medical device industry standards and regulations (GB 9706 series, ISO 13485, IEC 60601), with awareness of quality management and technical documentation.</p>
+    </div>
+    <div class="card">
+      <h3>Language Skills</h3>
+      <p>Strong English reading and writing skills, able to follow international frontier research — and I keep learning foreign languages out of pure interest.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Hobbies -->
+<section id="hobbies">
+  <h2>Hobbies</h2>
+  <p class="subtitle">What I love outside of engineering</p>
+  <div class="grid">
+    <div class="card hobby">
+      <div class="dot">📖</div>
+      <div><h3>Reading</h3><p>From scientific papers to medical popular science — staying curious and keeping the habit of lifelong learning.</p></div>
+    </div>
+    <div class="card hobby">
+      <div class="dot">🎨</div>
+      <div><h3>Watercolor</h3><p>I love recording life with a paintbrush, enjoying the moment colors bloom on paper.</p></div>
+    </div>
+    <div class="card hobby">
+      <div class="dot">🎸</div>
+      <div><h3>Electric Guitar & Ukulele</h3><p>From the gentle ukulele to the passionate electric guitar — I enjoy both sides.</p></div>
+    </div>
+    <div class="card hobby">
+      <div class="dot">🏊</div>
+      <div><h3>Swimming</h3><p>Relaxing my body and mind in the water, and a great way to build energy and willpower.</p></div>
+    </div>
+    <div class="card hobby">
+      <div class="dot">🌍</div>
+      <div><h3>Language Learning</h3><p>Fascinated by languages, always unlocking new ones and seeing a bigger world.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Career Plan -->
+<section id="plan">
+  <h2>Career Plan</h2>
+  <p class="subtitle">Where I'm headed</p>
+  <div class="timeline">
+    <div class="item">
+      <h4>Short-term · University Years</h4>
+      <p>Build a solid academic foundation, complete core coursework, actively join competitions and research, and aim for 1-2 relevant internships.</p>
+    </div>
+    <div class="item">
+      <h4>Mid-term · 1-3 Years After Graduation</h4>
+      <p>Join a technology company as an R&amp;D assistant / engineer, accumulate product development and project experience, and get familiar with industry regulations and quality systems.</p>
+    </div>
+    <div class="item">
+      <h4>Long-term · 3-5+ Years</h4>
+      <p>Grow into a senior engineer capable of independently leading projects, moving toward medical product R&amp;D, technical support, or project management — contributing to innovation in healthcare.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2 style="justify-content:center;">Contact Me</h2>
+  <p class="subtitle">Get in touch</p>
+  <p style="margin-bottom:20px;color:var(--text-light);">Always happy to chat about study, competition teams, or any interesting ideas.</p>
+  <a class="btn" href="mailto:liangjiahuihhh@qq.com">📧 Email me</a>
+  <a class="btn ghost" href="https://github.com/minzeliang" target="_blank">🐙 GitHub</a>
+</section>
+
+<footer>
+  © 2026 minzeliang. Life Science and Technology College, Jinan University. All Rights Reserved.
+</footer>
+
+</body>
+</html>
